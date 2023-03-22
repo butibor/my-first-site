@@ -1,3 +1,16 @@
+@extends('layout')
+
+@section('title')
+Kapcsolat
+@endsection
+
+{{-- @section('content')
+Kapcsolati űrlap megjelítése
+<form action="" method></form>
+@endsection --}}
+
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

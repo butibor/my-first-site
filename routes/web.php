@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\PostsController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+// a web.php fájl többi része
+Route::get('/posts/{post}', [PostsController::class, 'show']);
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('kapcsolat');
 
 // Route::view('/contact', 'contact');
 // Route::view('/valtozok', 'valtozok', $val=>'jani');
@@ -64,23 +72,23 @@ Route::get('/pass-array', function () {
 
     //     });
 
-        Route::get('/posts/{post}', function ($post) {
+        // Route::get('/posts/{post}', function ($post) {
 
-            $posts = [
-            'first-post' => 'Hello, this is my first blog post!',
-            'second-post' => 'Now I am getting the hang of this blogging thing'
-            ];
-            if ( ! array_key_exists($post, $posts)) {
+        //     $posts = [
+        //     'first-post' => 'Hello, this is my first blog post!',
+        //     'second-post' => 'Now I am getting the hang of this blogging thing'
+        //     ];
+        //     if ( ! array_key_exists($post, $posts)) {
 
-                abort(404);
+        //         abort(404);
 
-                }
-            return view('post', [
+        //         }
+        //     return view('post', [
 
-            'post' => $posts[$post] ?? 'Nothing here yet.'
+        //     'post' => $posts[$post] ?? 'Nothing here yet.'
 
-                ]);
-            });
+        //         ]);
+        //     });
 
 
 
